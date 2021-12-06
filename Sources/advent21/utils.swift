@@ -41,6 +41,6 @@ extension Task {
     
     func out(_ result: Int, _ duration: TimeInterval) {
         total += duration
-        print(String(format:"%@ - result '%d' in %.3f sec", String(describing: Self.self), result, duration))
+        print(String(format:"%@ - result '%lu' in %.3f sec", String(describing: Self.self), result, duration))
     }
 }

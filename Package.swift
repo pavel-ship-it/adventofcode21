@@ -12,6 +12,7 @@ let package = Package(
                         .copy("input3.txt"),
                         .copy("input4.txt"),
                         .copy("input5.txt"),
+                        .copy("input6.txt"),
                        ]
         )
     ]

@@ -9,5 +9,7 @@ Task7().run("input4") // 34506
 Task8().run("input4") // 7686
 Task9().run("input5") // 4728
 Task10().run("input5") // 17717
+Task11().run("input6") // 386640
+Task12().run("input6") // 1733403626279
 
 print(String(format:"total %.3f sec", total))
