@@ -18,8 +18,7 @@ func convert(_ input: [Int]) -> Int {
 class Task5: Task {
 
     func calc(_ inputFile: String) -> Int {
-        let input = fileData(inputFile)
-        let bits = input.map {
+        let bits = fileData(inputFile).map {
             $0.map { Int(String($0))! }
         }
         let frequency = frequency(bits)
