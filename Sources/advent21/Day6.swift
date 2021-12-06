@@ -7,12 +7,9 @@ class Task11: Task {
                 return ret
             }
         (0..<80).forEach { _ in
-            let newbies = fishes[0]
-            (1...8).forEach { i in
-                fishes[i-1] = fishes[i]
-            }
-            fishes[6] += newbies
-            fishes[8] = newbies
+            fishes[7] += fishes[0]
+            fishes.append(fishes[0])
+            fishes.remove(at: 0)
         }
         return fishes.reduce(0, +)
     }
@@ -27,12 +24,9 @@ class Task12: Task {
                 return ret
             }
         (0..<256).forEach { _ in
-            let newbies = fishes[0]
-            (1...8).forEach { i in
-                fishes[i-1] = fishes[i]
-            }
-            fishes[6] += newbies
-            fishes[8] = newbies
+            fishes[7] += fishes[0]
+            fishes.append(fishes[0])
+            fishes.remove(at: 0)
         }
         return Int(fishes.reduce(0, +))
     }
