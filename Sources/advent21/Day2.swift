@@ -1,14 +1,13 @@
-class Task3: Task {
-    enum Direction: String {
-        case forward = "forward"
-        case up = "up"
-        case down = "down"
-        case undef = "*"
-        init(fromRawValue: String) {
-            self = Direction(rawValue: fromRawValue) ?? .undef
-        }
+enum Direction: String {
+    case forward = "forward"
+    case up = "up"
+    case down = "down"
+    init(fromRawValue: String) {
+        self = Direction(rawValue: fromRawValue)!
     }
-    
+}
+
+class Task3: Task {
     func calc(_ inputFile: String) -> Int {
         let input = fileData(inputFile).map {
             let cps = $0.components(separatedBy: " ")
@@ -21,8 +20,6 @@ class Task3: Task {
             case .forward: forward += dir.1
             case .up: deep -= dir.1
             case .down: deep += dir.1
-            case .undef:
-                fatalError()
             }
         }
         return forward * deep
@@ -30,15 +27,6 @@ class Task3: Task {
 }
 
 class Task4: Task {
-    enum Direction: String {
-        case forward = "forward"
-        case up = "up"
-        case down = "down"
-        init(fromRawValue: String) {
-            self = Direction(rawValue: fromRawValue) ?? .forward
-        }
-    }
-    
     func calc(_ inputFile: String) -> Int {
         let input = fileData(inputFile).map {
             let cps = $0.components(separatedBy: " ")
