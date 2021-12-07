@@ -35,7 +35,7 @@ extension Task {
     }
     
     func fileData(_ inputFile:String) -> [String] {
-        let file = Bundle.module.path(forResource: inputFile, ofType: "txt")!
+        let file = Bundle.module.path(forResource: "Input/\(inputFile)", ofType: "txt")!
         return try! String(contentsOfFile: file).components(separatedBy: CharacterSet.newlines).compactMap { $0.isEmpty ? nil : $0 }
     }
     
