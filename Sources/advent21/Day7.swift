@@ -1,45 +1,25 @@
-import Foundation
 class Task13: Task {
     func consumption(_ dist: Int) -> Int { dist }
-    func buildConsumptionTable(_ max: Int) { }
     func calc(_ inputFile: String) -> Int {
         let croud = fileData(inputFile)[0].components(separatedBy: ",").map { Int($0)! }
-        var min = Int.max
-        var max = Int.min
+        var posMin = Int.max
+        var posMax = Int.min
         let alignment = croud.reduce([Int: Int]()) {
             var out = $0
             out[$1, default: 0] += 1
-            if $1 < min {
-                min = $1
-            }
-            if $1 > max {
-                max = $1
-            }
+            posMin = min(posMin, $1)
+            posMax = max(posMax, $1)
             return out
         }
-        buildConsumptionTable(max)
-        var minConsumption = Int.max
-        (min...max).forEach { align in
-            var ptCons = 0
-            alignment.forEach {
-                ptCons += consumption(Int((align - $0).magnitude)) * $1
+        return (posMin...posMax).map { align in
+            alignment.reduce(0) {
+                $0 + consumption(Int((align - $1.0).magnitude)) * $1.1
             }
-            if ptCons < minConsumption {
-                minConsumption = ptCons
-            }
-        }
-        return minConsumption
+        }.min()!
     }
 }
-
 class Task14: Task13 {
-    var consT = [0]
     override func consumption(_ dist: Int) -> Int {
-        return consT[dist]
-    }
-    override func buildConsumptionTable(_ max: Int) {
-        (1...max).forEach { i in
-            consT.append(i + consT[i-1])
-        }
+        return dist * (dist + 1) / 2
     }
 }
