@@ -10,7 +10,7 @@ class Task21: Task {
                 }
                 octoMap[y][x] += 1
                 if octoMap[y][x] > 9 {
-                    willFlash.insert(Point(x, y))
+                    willFlash.insert(Point(x: x, y: y))
                 }
             }
         }
@@ -23,7 +23,7 @@ class Task21: Task {
             for x in (0..<octoMap[0].count) {
                 octoMap[y][x] += 1
                 if octoMap[y][x] > 9 {
-                    willFlash.insert(Point(x, y))
+                    willFlash.insert(Point(x: x, y: y))
                 }
             }
         }
