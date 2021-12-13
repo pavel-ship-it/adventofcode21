@@ -22,5 +22,7 @@ Task21().run("input11") // 1688
 Task22().run("input11") // 403
 Task23().run("input12") // 3563
 Task24().run("input12") // 105453
+Task25().run("input13") // 592
+Task26().run("input13") // JGAJEFKU
 
 print(String(format:"total %.3f sec", total))
