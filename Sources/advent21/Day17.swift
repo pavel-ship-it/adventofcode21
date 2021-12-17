@@ -3,15 +3,18 @@ class Task33: Task {
     let rangeY = (-132, -72)
     func calc(_ inputFile: String) -> Int {
         var maxY = 0
+        var hits = 0
         for x in (0...rangeX.1) {
             for y in (rangeY.0...abs(rangeY.0)) {
                 let (hit, alt) = shoot(x, y, rangeX, rangeY)
                 if hit {
                     maxY = max(maxY, alt)
+                    hits+=1
                 }
             }
         }
-        return maxY
+        out(maxY, 0)
+        return hits
     }
     func shoot(_ x: Int, _ y: Int, _ rangeX: (Int, Int), _ rangeY: (Int, Int)) -> (Bool, Int) {
         var maxY = 0
@@ -30,19 +33,5 @@ class Task33: Task {
             }
         } while pt.y >= rangeY.0
         return (false, 0)
-    }
-}
-class Task34: Task33 {
-    override func calc(_ inputFile: String) -> Int {
-        var hits = 0
-        for x in (0...rangeX.1).reversed() {
-            for y in (rangeY.0...abs(rangeY.0)) {
-                let (hit, _) = shoot(x, y, rangeX, rangeY)
-                if hit {
-                    hits+=1
-                }
-            }
-        }
-        return hits
     }
 }
