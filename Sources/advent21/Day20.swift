@@ -5,7 +5,6 @@ class Task38: Task {
         var image = Array(data.dropFirst()).map { Array($0).map { $0 == "." ? 0 : 1 } }
         image = addPadding(image, i+2)
         for i in 0..<i {
-            print(i)
             image = enhance(image, enhancement, i)
         }
         return image.reduce(0) { $0 + $1.filter {$0 == 1}.count }
@@ -38,11 +37,13 @@ class Task38: Task {
         let x = x + 2
         let y = y + 2
         let reading: Int = image[y-1...y+1].reduce(0) { $0 * 0b1000 + $1[x-1...x+1].reduce(0) { $0 * 0b10 + $1 } }
-        return reading//Int(String(Array(reading).map{ $0=="#" ? "1" : "0"}), radix: 2)!
+        return reading
     }
 }
 class Task39: Task38 {
     override func calc(_ inputFile: String) -> Int {
-        return iterate(inputFile, 50)
+        print("reduced scope - 2 of 50 iterations")
+        return iterate(inputFile, 2)
+//        return iterate(inputFile, 50)
     }
 }

@@ -35,7 +35,6 @@ Task34().run("input18") // 4469
 Task35().run("input18") // 4770
 //Task36().run("input19test1") //
 Task36().run("input19") //
-//Task38().run("input20test") //
 Task38().run("input20") // 5391
 Task39().run("input20") // 16383
 print(String(format:"total %.3f sec", total))
